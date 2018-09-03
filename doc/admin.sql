@@ -104,3 +104,45 @@ INSERT INTO `news_category` VALUES ('3', '体育', '体育', '', '2017-06-15 18:
 INSERT INTO `news_category` VALUES ('4', '人文', '人文', '', '2017-06-15 19:00:06', '2');
 INSERT INTO `news_category` VALUES ('5', '娱乐', '娱乐八卦', '/userfiles/20170704110957.png', '2017-07-04 11:09:57', '2');
 INSERT INTO `news_category` VALUES ('6', '历史', '历史文学', '/userfiles/20170705113505.png', '2017-07-05 11:34:31', '1');
+
+-- ----------------------------
+-- Table structure for adsense
+-- ----------------------------
+DROP TABLE IF EXISTS `adsense`;
+CREATE TABLE `adsense` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `type` tinyint(2) unsigned DEFAULT '0' COMMENT '类型:PC，APP',
+  `place` tinyint(2) DEFAULT NULL COMMENT '位置:首页，左侧，右侧，列表页',
+  `addDate` datetime DEFAULT NULL COMMENT '创建时间',
+  `updateDate` datetime DEFAULT NULL,
+  `state` tinyint(1) DEFAULT NULL COMMENT '状态 1 正常 2 删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='广告位';
+
+-- ----------------------------
+-- Records of adsense
+-- ----------------------------
+INSERT INTO `adsense` VALUES (1,1,1,'2017-06-15 18:59:37',NULL,1);
+
+-- ----------------------------
+-- Table structure for advert
+-- ----------------------------
+DROP TABLE IF EXISTS `advert`;
+CREATE TABLE `advert` (
+  `id` int(11) unsigned NOT NULL,
+  `adsense_id` int(11) DEFAULT NULL COMMENT '广告位置id',
+  `url` varchar(100) CHARACTER SET latin1 DEFAULT '' COMMENT '链接地址',
+  `img_src` varchar(150) DEFAULT NULL COMMENT '封面图片',
+  `alt` char(50) CHARACTER SET latin1 DEFAULT '' COMMENT '简述',
+  `remark` varchar(150) CHARACTER SET latin1 DEFAULT '' COMMENT '备注信息',
+  `sort` tinyint(1) DEFAULT NULL COMMENT '排序',
+  `addDate` datetime DEFAULT NULL COMMENT '创建时间',
+  `updateDate` datetime DEFAULT NULL,
+  `state` tinyint(1) DEFAULT NULL COMMENT '状态 1 正常 2 删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='广告';
+
+-- ----------------------------
+-- Records of advert
+-- ----------------------------
+INSERT INTO `advert` VALUES (1,1,'1','1','1','1',1,'2017-06-15 18:59:37',NULL,1);

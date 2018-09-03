@@ -7,8 +7,10 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.shenma.model.NewsCategory;
+import org.springframework.stereotype.Service;
 
 @Mapper
+@Service
 public interface NewsCategoryService {
 	
 	@Select("SELECT * FROM `news_category` where id = #{id};")

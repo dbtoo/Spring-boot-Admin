@@ -9,8 +9,11 @@ import org.apache.ibatis.annotations.Update;
 
 import com.shenma.model.News;
 import com.shenma.util.Constant;
-	
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
+
 @Mapper
+@Service
 public interface NewsService {
 	
 	@Select("SELECT * FROM NEWS WHERE ID = #{id};")
