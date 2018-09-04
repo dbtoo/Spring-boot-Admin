@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layouts/main">
+
+
+<head>
+
+</head>
+<body>
+<div layout:fragment="admin-main-content">
+
+    <main class="main">
+        <!-- Breadcrumb-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">首页</li>
+            <li class="breadcrumb-item">
+                <a href="{{route('user_index')}">会员</a>
+            </li>
+            <li class="breadcrumb-item active">列表</li>
+            <!-- Breadcrumb Menu-->
+            <li class="breadcrumb-menu d-md-down-none">
+                <div class="btn-group" role="group" aria-label="Button group">
+                    <a class="btn" href="#">
+                        <i class="icon-speech"></i>
+                    </a>
+                    <a class="btn" href="./">
+                        <i class="icon-graph"></i>  总览</a>
+                    <a class="btn" href="#">
+                        <i class="icon-settings"></i>  设置</a>
+                </div>
+            </li>
+        </ol>
+        <div class="container-fluid">
+            <div class="animated fadeIn">
+                <div id="ui-view">
+                    <div>
+                        <div id="ui-view">
+                            <div>
+                                <div class="animated fadeIn">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <i class="fa fa-list"></i> 会员列表
+                                            <div class="card-header-actions">
+
+                                                <a href="{{ route('user_addUser') }"
+                                                   class="btn   btn-primary fa fa-edit "> 添加会员 </a>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            @if($errors->any())
+                                            <div class="alert alert-success" role="alert">{{$errors->first()}}</div>
+                                            @endif
+                                            <table id="main_list" class="table table-striped table-bordered"
+                                                   style="width:100%">
+                                                <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>ID</th>
+                                                    <th>呢称</th>
+                                                    <th>手机号码</th>
+                                                    <th>姓名</th>
+                                                    <th>身份证号码</th>
+                                                    <th>称号</th>
+                                                    <th>等级</th>
+                                                    <th>余额</th>
+                                                    <th>算力</th>
+                                                    <th>注册时间</th>
+                                                    <th>状态</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                                </thead>
+
+
+                                                <tfoot>
+                                                <tr>
+                                                    <td colspan="13"><button class="btn btn-primary" id="del_sel"><i class="fa fa-remove"></i>删除选中</button></td>
+
+                                                </tr>
+                                                </tfoot>
+                                            </table>
+                                            <nav>
+
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<div layout:fragment="admin-css-part">
+    <link href="/static/dist/css/style.css" rel="stylesheet">
+    <link href="/static/dist/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+    <link href="/static/dist/vendors/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="/static/dist/vendors/datatables.net-select-dt/css/select.dataTables.css" rel="stylesheet">
+    <link href="/static/dist/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.css" rel="stylesheet">
+</div>
+<div layout:fragment="admin-js-part">
+
+    <!-- Plugins and scripts required by this view-->
+    <script type="text/javascript" src="/static/dist/vendors/datatables.net/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="/static/dist/vendors/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript" src="/static/dist/vendors/datatables.net-select/js/dataTables.select.js"></script>
+    <script type="text/javascript" src="/static/dist/vendors/jquery-datatables-checkboxes/js/dataTables.checkboxes.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            data_tables = $('#main_list').DataTable({
+                serverSide: true,
+                processing: true,
+                bAutoWidth: true,
+                bFilter: true,
+                bSort: true,
+                ajax: '#',
+                columns: [
+                    {data: 'id',orderable: false, searchable: false},
+                    {data: 'id'},
+                    {data:
+                            function(td){
+                                return '<div class="avatar"><img src="/upload/'+td.avatar+'" onerror="this.src=\'/dist/img/avatars/_head.gif\'" class="img-avatar" alt="+td.nick_name+"><span class="avatar-status badge-success"></span></div>'+td.nick_name;
+                            }},
+                    {data: 'mobile'},
+                    {data: 'id_name'},
+                    {data: 'id_num'},
+                    {data: 'title'},
+                    {data: 'level'},
+                    {
+                        data: function (td) {
+                            return '<a href="/system/blance_log?id='+td.id+'">'+td.blance+'</a>'
+                        }
+                    },
+                    {
+                        data: function (td) {
+                            return '<a href="/system/power_log?id='+td.id+'">'+td.power+'</a>'
+                        }
+                    },
+                    {data: 'created_at'},
+                    {data: function (td) {  return td.status == '正常' ? '<i class="alert-info">正常</i>': '<i class="alert-danger">冻结</i>';}},
+                    {data: 'action', orderable: false, searchable: false}
+                ],
+                columnDefs: [{
+                    orderable: false,
+                    targets: 0,
+                    checkboxes: {
+                        selectRow: true
+                    }
+                }],
+                select: {
+                    style: 'multi',
+                    selector: 'td:first-child',
+
+                },
+
+                "oLanguage": {
+                    "sProcessing":   "<img src='/static/dist/img/loading.gif' width='25' height='25'/> 处理中...",
+                    "sLengthMenu":   "显示 _MENU_ 项结果",
+                    "sZeroRecords":  "没有匹配结果",
+                    "sInfo":         "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                    "sInfoEmpty":    "显示第 0 至 0 项结果，共 0 项",
+                    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                    "sInfoPostFix":  "",
+                    "sSearch":       "搜索:",
+                    "sUrl":          "",
+                    "sEmptyTable":     "表中数据为空",
+                    "sLoadingRecords": "<img src='/static/dist/img/loading.gif' width='25' height='25'/> 载入中...",
+                    "sInfoThousands":  ",",
+                    "oPaginate": {
+                        "sFirst":    "首页",
+                        "sPrevious": "上页",
+                        "sNext":     "下页",
+                        "sLast":     "末页"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": 以升序排列此列",
+                        "sSortDescending": ": 以降序排列此列"
+                    },
+                    select: {
+                        rows: "已选中 %d 行"
+                    }
+                }
+
+            });
+
+            //批量处理
+            $('#del_sel').click(function(){
+                var select_ids = [];
+                var rows_selected = data_tables.column(0).checkboxes.selected();
+                // Iterate over all selected checkboxes
+                $.each(rows_selected, function(index, rowId){
+                    select_ids.push(rowId);
+                });
+                //TODO::改成ajax
+                if(select_ids.length>0){
+                    window.location = '?id='+select_ids.join(',');
+                    //console.log(select_ids);
+                }
+            });
+
+        });
+    </script>
+</div>
+
+</body>
+</html>
