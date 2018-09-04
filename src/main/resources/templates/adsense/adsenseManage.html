@@ -114,8 +114,12 @@
 	                                    <tbody>
 	                                    	<tr th:each="adsense : ${list}">
 										   		<td th:text="${adsense.id}">Onions</td>
-										      	<td th:text="${adsense.type}">Onions</td>
-										      	<td th:text="${adsense.place}">Onions</td>
+										      	<td th:if=" ${adsense.type} eq '1'">PC</td>
+										      	<td th:if=" ${adsense.type} eq '2'">APP</td>
+										      	<td th:if=" ${adsense.place} eq '1'">首页</td>
+										      	<td th:if=" ${adsense.place} eq '2'">左侧</td>
+										      	<td th:if=" ${adsense.place} eq '3'">右侧</td>
+										      	<td th:if=" ${adsense.place} eq '4'">列表页</td>
 										      	<td th:text="${adsense.addDate}">Onions</td>
 										      	<td>
 										      		<a th:href="@{'adsenseEdit?id='+${adsense.id}}" title="修改"><i class="fa fa-edit text-navy"></i></a>
