@@ -132,7 +132,7 @@ CREATE TABLE `advert` (
   `id` int(11) unsigned NOT NULL,
   `adsense_id` int(11) DEFAULT NULL COMMENT '广告位置id',
   `url` varchar(100) CHARACTER SET latin1 DEFAULT '' COMMENT '链接地址',
-  `img_src` varchar(150) DEFAULT NULL COMMENT '封面图片',
+  `image` varchar(150) DEFAULT NULL COMMENT '封面图片',
   `alt` char(50) CHARACTER SET latin1 DEFAULT '' COMMENT '简述',
   `remark` varchar(150) CHARACTER SET latin1 DEFAULT '' COMMENT '备注信息',
   `sort` tinyint(1) DEFAULT NULL COMMENT '排序',
