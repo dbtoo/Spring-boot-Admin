@@ -13,9 +13,9 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item">首页</li>
             <li class="breadcrumb-item">
-                <a href="#">会员</a>
+                <a href="{{route('user_index')}}">会员</a>
             </li>
-            <li class="breadcrumb-item active">列表</li>
+            <li class="breadcrumb-item active">添加</li>
             <!-- Breadcrumb Menu-->
             <li class="breadcrumb-menu d-md-down-none">
                 <div class="btn-group" role="group" aria-label="Button group">
@@ -38,45 +38,56 @@
                                 <div class="animated fadeIn">
                                     <div class="card">
                                         <div class="card-header">
-                                            <i class="fa fa-list"></i> 会员列表
+                                            <i class="fa fa-list"></i> 添加会员
                                             <div class="card-header-actions">
 
-                                                <a href="/admin/users/addUsers"
-                                                   class="btn   btn-primary fa fa-edit "> 添加会员 </a>
+                                                <a href="#" class="btn   btn-secondary fa fa-backward "> 返回 </a>
                                             </div>
                                         </div>
                                         <div class="card-body">
-
-                                            <div class="alert alert-success" role="alert">错误提示信息</div>
-
-                                            <table id="main_list" class="table table-striped table-bordered"
-                                                   style="width:100%">
-                                                <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>ID</th>
-                                                    <th>用户名</th>
-                                                    <th>密码</th>
-                                                    <th>昵称</th>
-                                                    <th>性别</th>
-                                                    <th>注册使时间</th>
-                                                    <th>操作</th>
-                                                </tr>
-                                                </thead>
-                                                <tfoot>
-                                                <tr>
-                                                    <td colspan="7">
-                                                        <button class="btn btn-primary" id="del_sel"><i
-                                                                class="fa fa-remove"></i>删除选中
-                                                        </button>
-                                                    </td>
-
-                                                </tr>
-                                                </tfoot>
-                                            </table>
-                                            <nav>
-
-                                            </nav>
+                                            <div class="alert alert-warning" role="alert"></div>
+                                            <form method="post" action="/admin/savaUser"   enctype="multipart/form-data">
+                                                <input type="hidden" name="id" th:value="${usersList.id}" >
+                                                <div class="form-group">
+                                                    <label class="col-form-label" for="username">用户名</label>
+                                                    <div class="controls">
+                                                        <div class="input-group">
+                                                            <input id="username" class="form-control"  name='username' size="16" type="text" th:value="${usersList.username}">
+                                                            <div class="input-group-append">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="form-group">-->
+                                                    <!--<label class="col-form-label" for="appendedInput">昵称</label>-->
+                                                    <!--<div class="controls">-->
+                                                        <!--<div class="input-group">-->
+                                                            <!--<input id="appendedInput" class="form-control"  name='nick_name' size="16" type="text" value="{{$users->nick_name}}">-->
+                                                            <!--<div class="input-group-append">-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <!--<div class="form-group">-->
+                                                    <!--<label class="col-form-label" for="appendedPrependedInput">手机号</label>-->
+                                                    <!--<div class="controls">-->
+                                                        <!--<div class="input-prepend input-group">-->
+                                                            <!--<input id="email" class="form-control" name="mobile" size="16" type="text" value="{{$users->mobile}}">-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div> <div class="form-group">-->
+                                                <!--<label class="col-form-label" for="nikename">姓名</label>-->
+                                                <!--<div class="controls">-->
+                                                    <!--<div class="input-prepend input-group">-->
+                                                        <!--<input id="nikename" class="form-control" name="id_name" size="16" type="text" value="{{$users->id_name}}">-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                                <div class="form-actions">
+                                                    <button type="submit" class="btn btn-primary">保存</button>
+                                                    <button type="button" class="btn btn-secondary">取消</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

@@ -19,7 +19,7 @@ public class Users {
 
     private Integer gender;
 
-    @JSONField(format="yyyyMMdd")
+    @JSONField(format="yyyy-MM-dd")
     @Column(name = "register_date")
     private Date registerDate;
 
