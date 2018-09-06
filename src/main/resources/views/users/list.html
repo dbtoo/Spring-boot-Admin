@@ -65,7 +65,7 @@
                                                 </thead>
                                                 <tfoot>
                                                 <tr>
-                                                    <td colspan="7">
+                                                    <td colspan="8">
                                                         <button class="btn btn-primary" id="del_sel"><i
                                                                 class="fa fa-remove"></i>删除选中
                                                         </button>
@@ -112,12 +112,10 @@
                 {data: 'gender'},
                 {data: 'registerDate'},
                 {data:null,"render": function(data, type, row) {
-                        var html = '<a href="/admin/users/delete?id='+row.id +'" title="删除"><i class="fa fa-remove"></i></a>'
-                         ;
+                        var html = '<a href="/admin/users/delete?id='+row.id +'" title="删除"><i class="fa fa-remove"></i></a>';
                         return html;
-                    }
-                    /*defaultContent:'<a href="#"  onclick="relatedHandle(this,1)">修改</a>||<a href="#"  onclick="relatedHandle(this,1)">删除</a>'*/,
-                    orderable:true
+                    },
+                    orderable:false
                 },
             ],
             columnDefs: [{

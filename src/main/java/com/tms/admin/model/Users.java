@@ -1,6 +1,7 @@
 package com.tms.admin.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.tms.admin.core.Handler.GenderEnum;
 
 import java.util.Date;
 import javax.persistence.*;
@@ -17,7 +18,7 @@ public class Users {
     @Column(name = "nick_name")
     private String nickName;
 
-    private Integer gender;
+    private GenderEnum gender;
 
     @JSONField(format="yyyy-MM-dd")
     @Column(name = "register_date")
@@ -82,14 +83,14 @@ public class Users {
     /**
      * @return gender
      */
-    public Integer getGender() {
-        return gender;
+    public String getGender() {
+        return gender.getValue();
     }
 
     /**
      * @param gender
      */
-    public void setGender(Integer gender) {
+    public void setGender(GenderEnum gender) {
         this.gender = gender;
     }
 
