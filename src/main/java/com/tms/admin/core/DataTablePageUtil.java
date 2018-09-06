@@ -156,6 +156,7 @@ public class DataTablePageUtil<T> {
         String length = "20";
         //DT传递的draw:
         String draw = "1";
+        String searchKey = "";
 
         try{
             //开始的数据行数
@@ -165,6 +166,10 @@ public class DataTablePageUtil<T> {
             //DT传递的draw:
              draw = request.getParameter("draw").isEmpty() ? draw : request.getParameter("draw");
 
+            searchKey = request.getParameter("search[value]").isEmpty() ? searchKey : request.getParameter("search[value]");
+
+
+
         }catch (Exception e){
 
         }
@@ -172,7 +177,10 @@ public class DataTablePageUtil<T> {
 
         this.setStart(Integer.parseInt(start));
         this.setLength(Integer.parseInt(length));
+        this.setPage_size(Integer.parseInt(length));
         this.setDraw(Integer.parseInt(draw));
+        this.setSearch(searchKey);
+
         //计算页码
         this.page_num = (Integer.parseInt(start) / Integer.parseInt(length)) + 1;
 

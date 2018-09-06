@@ -3,10 +3,12 @@ import com.alibaba.fastjson.JSONObject;
 import com.tms.admin.core.DataTablePageUtil;
 import com.tms.admin.core.Result;
 import com.tms.admin.core.ResultGenerator;
+import com.tms.admin.dao.UsersMapper;
 import com.tms.admin.model.Users;
 import com.tms.admin.service.UsersService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,9 @@ import java.util.List;
 public class UsersController {
     @Resource
     private UsersService usersService;
+
+    @Autowired
+    UsersMapper um;
 
     @RequestMapping("/add")
     public Result add(Users users) {
@@ -58,30 +63,26 @@ public class UsersController {
     @ResponseBody
     @RequestMapping("/list/data")
     public Object list(HttpServletRequest request) {
-        //public Object list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
-        int page = 0;
-        int size = 0;
-        try{
-            page = Integer.parseInt(request.getParameter("page"));
-            size = Integer.parseInt(request.getParameter("size"));
-        }catch (Exception e)
-        {
-            System.out.println(e.getMessage());
 
-        }
 
-        PageHelper.startPage(page, size);
-        List<Users> list = usersService.findAll();
-        PageInfo pageInfo = new PageInfo(list);
-
+        //DataTables Request请求
         DataTablePageUtil<Users> dataTable= new DataTablePageUtil<Users>(request);
 
+        //设置分页参数
+        PageHelper.startPage(dataTable.getPage_num(), dataTable.getPage_size());
+
+        //查询列表
+        List<Users> list = usersService.findAll();
+
+        PageInfo pageInfo = new PageInfo(list);
+
+
+        System.out.println(dataTable.getSearch());
+        //填充Datables数据
         dataTable.setDraw(dataTable.getDraw());
         dataTable.setData(pageInfo.getList());
         dataTable.setRecordsTotal((int) pageInfo.getTotal());
         dataTable.setRecordsFiltered(dataTable.getRecordsTotal());
-
-
 
 
         return JSONObject.toJSON(dataTable);

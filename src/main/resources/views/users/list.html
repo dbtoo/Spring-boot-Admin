@@ -2,83 +2,80 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <th:block layout:include="layouts/top"/>
-    <link href="/static/dist/css/style.css" rel="stylesheet">
-    <link href="/static/dist/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
-    <link href="/static/dist/vendors/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-    <link href="/static/dist/vendors/datatables.net-select-dt/css/select.dataTables.css" rel="stylesheet">
-    <link href="/static/dist/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.css" rel="stylesheet">
-
+    <th:block layout:include="layouts/datatables_css"/>
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
 <th:block layout:include="layouts/header"/>
 <div class="app-body">
     <th:block layout:include="layouts/sidebar"/>
-
-        <main class="main">
-            <!-- Breadcrumb-->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">首页</li>
-                <li class="breadcrumb-item">
-                    <a href="#">会员</a>
-                </li>
-                <li class="breadcrumb-item active">列表</li>
-                <!-- Breadcrumb Menu-->
-                <li class="breadcrumb-menu d-md-down-none">
-                    <div class="btn-group" role="group" aria-label="Button group">
-                        <a class="btn" href="#">
-                            <i class="icon-speech"></i>
-                        </a>
-                        <a class="btn" href="./">
-                            <i class="icon-graph"></i>  总览</a>
-                        <a class="btn" href="#">
-                            <i class="icon-settings"></i>  设置</a>
-                    </div>
-                </li>
-            </ol>
-            <div class="container-fluid">
-                <div class="animated fadeIn">
-                    <div id="ui-view">
+    <main class="main">
+        <!-- Breadcrumb-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">首页</li>
+            <li class="breadcrumb-item">
+                <a href="#">会员</a>
+            </li>
+            <li class="breadcrumb-item active">列表</li>
+            <!-- Breadcrumb Menu-->
+            <li class="breadcrumb-menu d-md-down-none">
+                <div class="btn-group" role="group" aria-label="Button group">
+                    <a class="btn" href="#">
+                        <i class="icon-speech"></i>
+                    </a>
+                    <a class="btn" href="./">
+                        <i class="icon-graph"></i>  总览</a>
+                    <a class="btn" href="#">
+                        <i class="icon-settings"></i>  设置</a>
+                </div>
+            </li>
+        </ol>
+        <div class="container-fluid">
+            <div class="animated fadeIn">
+                <div id="ui-view">
+                    <div>
                         <div>
-                            <div id="ui-view">
-                                <div>
-                                    <div class="animated fadeIn">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <i class="fa fa-list"></i> 会员列表
-                                                <div class="card-header-actions">
+                            <div>
+                                <div class="animated fadeIn">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <i class="fa fa-list"></i> 会员列表
+                                            <div class="card-header-actions">
 
-                                                    <a href="#"
-                                                       class="btn   btn-primary fa fa-edit "> 添加会员 </a>
-                                                </div>
+                                                <a href="#"
+                                                   class="btn   btn-primary fa fa-edit "> 添加会员 </a>
                                             </div>
-                                            <div class="card-body">
+                                        </div>
+                                        <div class="card-body">
 
-                                                <div class="alert alert-success" role="alert">错误提示信息</div>
+                                            <div class="alert alert-success" role="alert">错误提示信息</div>
 
-                                                <table id="main_list" class="table table-striped table-bordered"
-                                                       style="width:100%">
-                                                    <thead>
-                                                    <tr>
-                                                        <th></th>
-                                                        <th>ID</th>
-                                                        <th>username</th>
-                                                        <th>password</th>
-                                                        <th>nick_name</th>
-                                                        <th>gender</th>
-                                                        <th>register_date</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                    <tr>
-                                                        <td colspan="7"><button class="btn btn-primary" id="del_sel"><i class="fa fa-remove"></i>删除选中</button></td>
+                                            <table id="main_list" class="table table-striped table-bordered"
+                                                   style="width:100%">
+                                                <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>ID</th>
+                                                    <th>username</th>
+                                                    <th>password</th>
+                                                    <th>nick_name</th>
+                                                    <th>gender</th>
+                                                    <th>register_date</th>
+                                                </tr>
+                                                </thead>
+                                                <tfoot>
+                                                <tr>
+                                                    <td colspan="7">
+                                                        <button class="btn btn-primary" id="del_sel"><i
+                                                                class="fa fa-remove"></i>删除选中
+                                                        </button>
+                                                    </td>
 
-                                                    </tr>
-                                                    </tfoot>
-                                                </table>
-                                                <nav>
+                                                </tr>
+                                                </tfoot>
+                                            </table>
+                                            <nav>
 
-                                                </nav>
-                                            </div>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
@@ -87,94 +84,93 @@
                     </div>
                 </div>
             </div>
-        </main>
-        <th:block layout:include="layouts/aside-menu"/>
+        </div>
+    </main>
+    <th:block layout:include="layouts/aside-menu"/>
 </div>
 
-    <th:block layout:include="layouts/footer"/>
-    <!-- Plugins and scripts required by this view-->
-    <script type="text/javascript" src="/static/dist/vendors/datatables.net/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="/static/dist/vendors/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
-    <script type="text/javascript" src="/static/dist/vendors/datatables.net-select/js/dataTables.select.js"></script>
-    <script type="text/javascript" src="/static/dist/vendors/jquery-datatables-checkboxes/js/dataTables.checkboxes.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            data_tables = $('#main_list').DataTable({
-                serverSide: true,
-                processing: true,
-                bAutoWidth: true,
-                bFilter: true,
-                bSort: true,
-                ajax: '/admin/users/list/data',
-                columns: [
-                    {data: 'id',orderable: false, searchable: false},
-                    {data: 'id'},
-                    {data: 'username'},
-                    {data: 'password'},
-                    {data: 'nickName'},
-                    {data: 'gender'},
-                    {data: 'registerDate'}
-                ],
-                columnDefs: [{
-                    orderable: false,
-                    targets: 0,
-                    checkboxes: {
-                        selectRow: true
-                    }
-                }],
-                select: {
-                    style: 'multi',
-                    selector: 'td:first-child',
+<th:block layout:include="layouts/footer"/>
+<!-- Plugins and scripts required by this view-->
+<th:block layout:include="layouts/datatables_js"/>
+<script type="text/javascript">
+    $(function () {
+        data_tables = $('#main_list').DataTable({
+            serverSide: true,
+            processing: true,
+            bAutoWidth: true,
+            bFilter: true,
+            bSort: true,
+            ajax: '/admin/users/list/data',
+            paging: true,//是否分页
+            columns: [
+                {data: 'id', orderable: false, searchable: false},
+                {data: 'id', orderable: true, searchable: true},
+                {data: 'username',orderable: true, searchable: true},
+                {data: 'password',orderable: true, searchable: true},
+                {data: 'nickName',orderable: true, searchable: true},
+                {data: 'gender'},
+                {data: 'registerDate'}
+            ],
+            columnDefs: [{
+                orderable: false,
+                targets: 0,
+                checkboxes: {
+                    selectRow: true
+                }
+            }],
+            select: {
+                style: 'multi',
+                selector: 'td:first-child',
 
+            },
+
+            "oLanguage": {
+                "sProcessing": "<img src='/static/dist/img/loading.gif' width='25' height='25'/> 处理中...",
+                "sLengthMenu": "显示 _MENU_ 项结果",
+                "sZeroRecords": "没有匹配结果",
+                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                "sInfoPostFix": "",
+                "sSearch": "搜索:",
+                "sUrl": "",
+                "sEmptyTable": "表中数据为空",
+                "sLoadingRecords": "<img src='/static/dist/img/loading.gif' width='25' height='25'/> 载入中...",
+                "sInfoThousands": ",",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
                 },
-
-                "oLanguage": {
-                    "sProcessing":   "<img src='/static/dist/img/loading.gif' width='25' height='25'/> 处理中...",
-                    "sLengthMenu":   "显示 _MENU_ 项结果",
-                    "sZeroRecords":  "没有匹配结果",
-                    "sInfo":         "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                    "sInfoEmpty":    "显示第 0 至 0 项结果，共 0 项",
-                    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-                    "sInfoPostFix":  "",
-                    "sSearch":       "搜索:",
-                    "sUrl":          "",
-                    "sEmptyTable":     "表中数据为空",
-                    "sLoadingRecords": "<img src='/static/dist/img/loading.gif' width='25' height='25'/> 载入中...",
-                    "sInfoThousands":  ",",
-                    "oPaginate": {
-                        "sFirst":    "首页",
-                        "sPrevious": "上页",
-                        "sNext":     "下页",
-                        "sLast":     "末页"
-                    },
-                    "oAria": {
-                        "sSortAscending":  ": 以升序排列此列",
-                        "sSortDescending": ": 以降序排列此列"
-                    },
-                    select: {
-                        rows: "已选中 %d 行"
-                    }
+                "oAria": {
+                    "sSortAscending": ": 以升序排列此列",
+                    "sSortDescending": ": 以降序排列此列"
+                },
+                select: {
+                    rows: "已选中 %d 行"
                 }
-
-            });
-
-            //批量处理
-            $('#del_sel').click(function(){
-                var select_ids = [];
-                var rows_selected = data_tables.column(0).checkboxes.selected();
-                // Iterate over all selected checkboxes
-                $.each(rows_selected, function(index, rowId){
-                    select_ids.push(rowId);
-                });
-                //TODO::改成ajax
-                if(select_ids.length>0){
-                    window.location = '?id='+select_ids.join(',');
-                    //console.log(select_ids);
-                }
-            });
+            }
 
         });
-    </script>
+
+        //批量处理
+        $('#del_sel').click(function () {
+            var select_ids = [];
+            var rows_selected = data_tables.column(0).checkboxes.selected();
+            // Iterate over all selected checkboxes
+            $.each(rows_selected, function (index, rowId) {
+                select_ids.push(rowId);
+            });
+            //TODO::改成ajax
+            if (select_ids.length > 0) {
+                window.location = '?id=' + select_ids.join(',');
+                //console.log(select_ids);
+            }
+        });
+
+    });
+</script>
 
 </body>
 </html>
