@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -50,11 +51,41 @@ public class UsersController {
     }
 
     @RequestMapping("/list")
-    public String list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
+    public String list() {
+        return "users/list";
+    }
+
+    @ResponseBody
+    @RequestMapping("/list/data")
+    public Object list(HttpServletRequest request) {
+        //public Object list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
+        int page = 0;
+        int size = 0;
+        try{
+            page = Integer.parseInt(request.getParameter("page"));
+            size = Integer.parseInt(request.getParameter("size"));
+        }catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+
+        }
+
         PageHelper.startPage(page, size);
         List<Users> list = usersService.findAll();
         PageInfo pageInfo = new PageInfo(list);
-        return "users/list";
+
+        DataTablePageUtil<Users> dataTable= new DataTablePageUtil<Users>(request);
+
+        dataTable.setDraw(dataTable.getDraw());
+        dataTable.setData(pageInfo.getList());
+        dataTable.setRecordsTotal((int) pageInfo.getTotal());
+        dataTable.setRecordsFiltered(dataTable.getRecordsTotal());
+
+
+
+
+        return JSONObject.toJSON(dataTable);
+        //return ResultGenerator.genSuccessResult(pageInfo);
     }
 
 }
