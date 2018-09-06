@@ -19,4 +19,5 @@ import java.util.List;
 public class UsersServiceImpl extends AbstractService<Users> implements UsersService {
     @Resource
     private UsersMapper usersMapper;
+
 }

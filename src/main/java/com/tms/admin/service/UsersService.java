@@ -8,6 +8,4 @@ import java.util.List;
 /**
  * Created by CodeGenerator on 2018/09/04.
  */
-public interface UsersService extends Service<Users> {
-
-}
+public interface UsersService extends Service<Users> { }

@@ -29,7 +29,7 @@ public class UsersController {
     private UsersService usersService;
 
     @Autowired
-    UsersMapper um;
+    private UsersMapper um;
 
     @RequestMapping("/add")
     public Result add(Users users) {
@@ -72,20 +72,21 @@ public class UsersController {
         PageHelper.startPage(dataTable.getPage_num(), dataTable.getPage_size());
 
         //查询列表
-        List<Users> list = usersService.findAll();
+        List<Users> list = um.searchAll(dataTable.getSearch());
+        //return JSONObject.toJSON(list);
 
-        PageInfo pageInfo = new PageInfo(list);
-
-
-        System.out.println(dataTable.getSearch());
-        //填充Datables数据
-        dataTable.setDraw(dataTable.getDraw());
-        dataTable.setData(pageInfo.getList());
-        dataTable.setRecordsTotal((int) pageInfo.getTotal());
-        dataTable.setRecordsFiltered(dataTable.getRecordsTotal());
+       PageInfo pageInfo = new PageInfo(list);
 
 
-        return JSONObject.toJSON(dataTable);
+       //System.out.println(dataTable.getSearch());
+       ////填充Datables数据
+       dataTable.setDraw(dataTable.getDraw());
+       dataTable.setData(pageInfo.getList());
+       dataTable.setRecordsTotal((int) pageInfo.getTotal());
+       dataTable.setRecordsFiltered(dataTable.getRecordsTotal());
+
+
+       return JSONObject.toJSON(dataTable);
         //return ResultGenerator.genSuccessResult(pageInfo);
     }
 

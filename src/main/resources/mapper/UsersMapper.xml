@@ -12,10 +12,15 @@
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="register_date" jdbcType="TIMESTAMP" property="registerDate" />
   </resultMap>
-  <select id="searchAll" parameterType="String" resultType="com.tms.admin.model.Users">
+  <select id="searchAll" parameterType="String"  resultMap="BaseResultMap">
     select * from users where 1=1
     <if test="key!=null">
-      and  id LIKE concat(concat('%',#{key}),'%')
+      and (
+      id LIKE concat(concat('%',#{key}),'%')
+      or username LIKE concat(concat('%',#{key}),'%')
+      or password LIKE concat(concat('%',#{key}),'%')
+      or nick_name LIKE concat(concat('%',#{key}),'%')
+      )
     </if>
   </select>
 </mapper>
