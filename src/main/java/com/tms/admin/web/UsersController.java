@@ -37,10 +37,10 @@ public class UsersController {
         return ResultGenerator.genSuccessResult();
     }
 
-    @PostMapping("/delete")
-    public Result delete(@RequestParam Integer id) {
+    @RequestMapping("/delete")
+    public String delete(Integer id) {
         usersService.deleteById(id);
-        return ResultGenerator.genSuccessResult();
+        return "redirect:/admin/users/list";
     }
 
     @PostMapping("/update")
