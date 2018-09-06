@@ -1,79 +1,84 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-      layout:decorator="layouts/main">
-
-
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
+    <th:block layout:include="layouts/top"/>
+    <link href="/static/dist/css/style.css" rel="stylesheet">
+    <link href="/static/dist/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+    <link href="/static/dist/vendors/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="/static/dist/vendors/datatables.net-select-dt/css/select.dataTables.css" rel="stylesheet">
+    <link href="/static/dist/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.css" rel="stylesheet">
 
 </head>
-<body>
-<div layout:fragment="admin-main-content">
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+<th:block layout:include="layouts/header"/>
+<div class="app-body">
+    <th:block layout:include="layouts/sidebar"/>
 
-    <main class="main">
-        <!-- Breadcrumb-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">首页</li>
-            <li class="breadcrumb-item">
-                <a href="#">会员</a>
-            </li>
-            <li class="breadcrumb-item active">列表</li>
-            <!-- Breadcrumb Menu-->
-            <li class="breadcrumb-menu d-md-down-none">
-                <div class="btn-group" role="group" aria-label="Button group">
-                    <a class="btn" href="#">
-                        <i class="icon-speech"></i>
-                    </a>
-                    <a class="btn" href="./">
-                        <i class="icon-graph"></i>  总览</a>
-                    <a class="btn" href="#">
-                        <i class="icon-settings"></i>  设置</a>
-                </div>
-            </li>
-        </ol>
-        <div class="container-fluid">
-            <div class="animated fadeIn">
-                <div id="ui-view">
-                    <div>
-                        <div id="ui-view">
-                            <div>
-                                <div class="animated fadeIn">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <i class="fa fa-list"></i> 会员列表
-                                            <div class="card-header-actions">
+        <main class="main">
+            <!-- Breadcrumb-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">首页</li>
+                <li class="breadcrumb-item">
+                    <a href="#">会员</a>
+                </li>
+                <li class="breadcrumb-item active">列表</li>
+                <!-- Breadcrumb Menu-->
+                <li class="breadcrumb-menu d-md-down-none">
+                    <div class="btn-group" role="group" aria-label="Button group">
+                        <a class="btn" href="#">
+                            <i class="icon-speech"></i>
+                        </a>
+                        <a class="btn" href="./">
+                            <i class="icon-graph"></i>  总览</a>
+                        <a class="btn" href="#">
+                            <i class="icon-settings"></i>  设置</a>
+                    </div>
+                </li>
+            </ol>
+            <div class="container-fluid">
+                <div class="animated fadeIn">
+                    <div id="ui-view">
+                        <div>
+                            <div id="ui-view">
+                                <div>
+                                    <div class="animated fadeIn">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <i class="fa fa-list"></i> 会员列表
+                                                <div class="card-header-actions">
 
-                                                <a href="#"
-                                                   class="btn   btn-primary fa fa-edit "> 添加会员 </a>
+                                                    <a href="#"
+                                                       class="btn   btn-primary fa fa-edit "> 添加会员 </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="card-body">
+                                            <div class="card-body">
 
-                                            <div class="alert alert-success" role="alert">错误提示信息</div>
+                                                <div class="alert alert-success" role="alert">错误提示信息</div>
 
-                                            <table id="main_list" class="table table-striped table-bordered"
-                                                   style="width:100%">
-                                                <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>ID</th>
-                                                    <th>username</th>
-                                                    <th>password</th>
-                                                    <th>nick_name</th>
-                                                    <th>gender</th>
-                                                    <th>register_date</th>
-                                                </tr>
-                                                </thead>
-                                                <tfoot>
-                                                <tr>
-                                                    <td colspan="7"><button class="btn btn-primary" id="del_sel"><i class="fa fa-remove"></i>删除选中</button></td>
+                                                <table id="main_list" class="table table-striped table-bordered"
+                                                       style="width:100%">
+                                                    <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>ID</th>
+                                                        <th>username</th>
+                                                        <th>password</th>
+                                                        <th>nick_name</th>
+                                                        <th>gender</th>
+                                                        <th>register_date</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                    <tr>
+                                                        <td colspan="7"><button class="btn btn-primary" id="del_sel"><i class="fa fa-remove"></i>删除选中</button></td>
 
-                                                </tr>
-                                                </tfoot>
-                                            </table>
-                                            <nav>
+                                                    </tr>
+                                                    </tfoot>
+                                                </table>
+                                                <nav>
 
-                                            </nav>
+                                                </nav>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -82,18 +87,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+        <th:block layout:include="layouts/aside-menu"/>
 </div>
-<div layout:fragment="admin-css-part">
-    <link href="/static/dist/css/style.css" rel="stylesheet">
-    <link href="/static/dist/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
-    <link href="/static/dist/vendors/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-    <link href="/static/dist/vendors/datatables.net-select-dt/css/select.dataTables.css" rel="stylesheet">
-    <link href="/static/dist/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.css" rel="stylesheet">
-</div>
-<div layout:fragment="admin-js-part">
 
+    <th:block layout:include="layouts/footer"/>
     <!-- Plugins and scripts required by this view-->
     <script type="text/javascript" src="/static/dist/vendors/datatables.net/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="/static/dist/vendors/datatables.net-bs4/js/dataTables.bootstrap4.js"></script>
@@ -177,7 +175,6 @@
 
         });
     </script>
-</div>
 
 </body>
 </html>
