@@ -1,4 +1,6 @@
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,46 +13,28 @@ import java.util.*;
      public static void main(String[] args) {
          {
 
-             System.out.println(AdPlace.getValue("1"));
-             System.out.println("aa");
+              List<Users> l =new ArrayList<Users>();
+              Users u= new Users();
+              u.id=1;
+              u.name="ccc";
+              l.add(u);
+             Users u2= new Users();
+              u2.id=2;
+              u2.name="ddd";
+              l.add(u2);
+
+              for (Users ui:l){
+
+
+              }
+
+             System.out.println(JSONObject.toJSON(l));
 
          }
      }
  }
-enum AdPlace {
-    PC("1", "PC "),
-    APP("2", "APP");
-    /**
-     * mccCode
-     */
-    private String placeCode;
-    /**
-     * 中文值
-     */
-    private String chValue;
-    public static String getValue(String state) {
-        for (AdPlace place : AdPlace.values()) {
-            if (place.getPlaceCode().equals(state)) {
-                return place.getChValue();
-            }
-        }
-        return "";
-    }
 
-    public String getPlaceCode() {
-        return placeCode;
-    }
-
-
-
-    public String getChValue() {
-        return chValue;
-    }
-
-
-     AdPlace(String placecode, String placeString) {
-        this.placeCode = placecode;
-        this.chValue = placeString;
-    }
-
-}
+ class Users{
+     public int id;
+     public String name;
+ }

@@ -1,5 +1,7 @@
 package com.tms.admin.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 import javax.persistence.*;
 
@@ -17,6 +19,7 @@ public class Users {
 
     private Integer gender;
 
+    @JSONField(format="yyyyMMdd")
     @Column(name = "register_date")
     private Date registerDate;
 

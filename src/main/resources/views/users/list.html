@@ -55,11 +55,12 @@
                                                 <tr>
                                                     <th></th>
                                                     <th>ID</th>
-                                                    <th>username</th>
-                                                    <th>password</th>
-                                                    <th>nick_name</th>
-                                                    <th>gender</th>
-                                                    <th>register_date</th>
+                                                    <th>用户名</th>
+                                                    <th>密码</th>
+                                                    <th>昵称</th>
+                                                    <th>性别</th>
+                                                    <th>注册使时间</th>
+                                                    <th>操作</th>
                                                 </tr>
                                                 </thead>
                                                 <tfoot>
@@ -109,7 +110,16 @@
                 {data: 'password',orderable: true, searchable: true},
                 {data: 'nickName',orderable: true, searchable: true},
                 {data: 'gender'},
-                {data: 'registerDate'}
+                {data: 'registerDate'},
+                {data:null,"render": function(data, type, row) {
+                        var html = '<a href="javascript:console.log('+data.id+')" class="delete btn btn-default btn-xs"> 删除</a>'
+                         ;
+
+                        return html;
+                    }
+                    /*defaultContent:'<a href="#"  onclick="relatedHandle(this,1)">修改</a>||<a href="#"  onclick="relatedHandle(this,1)">删除</a>'*/,
+                    orderable:true
+                },
             ],
             columnDefs: [{
                 orderable: false,
