@@ -6,7 +6,4 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface UsersMapper extends Mapper<Users> {
-
-     List<Users> searchAll (@Param("key")String key);
-}
+public interface UsersMapper extends Mapper<Users> {}

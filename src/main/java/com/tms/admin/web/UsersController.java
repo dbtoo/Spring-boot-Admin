@@ -1,4 +1,5 @@
 package com.tms.admin.web;
+
 import com.alibaba.fastjson.JSONObject;
 import com.tms.admin.core.DataTablePageUtil;
 import com.tms.admin.core.Result;
@@ -21,17 +22,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2018/09/04.
-*/
+ * Created by CodeGenerator on 2018/09/04.
+ */
 @Controller
 @RequestMapping("/admin/users")
 public class UsersController {
     @Resource
     private UsersService usersService;
-
-    @Autowired
-    private UsersMapper um;
-
+    
     @RequestMapping("/add")
     public Result add(Users users) {
         usersService.save(users);
@@ -63,9 +61,9 @@ public class UsersController {
 
     @RequestMapping("/addUsers")
     public String addUsers(Integer id, Model model) {
-        if (id >0) {
+        if (id > 0) {
             Users users = usersService.findById(id);
-            model.addAttribute("usersList",users);
+            model.addAttribute("usersList", users);
         }
         return "users/addUsers";
     }
@@ -76,29 +74,29 @@ public class UsersController {
 
 
         //DataTables Request请求
-        DataTablePageUtil<Users> dataTable= new DataTablePageUtil<Users>(request);
+        DataTablePageUtil<Users> dataTable = new DataTablePageUtil<Users>(request);
 
         //设置分页参数
         PageHelper.startPage(dataTable.getPage_num(), dataTable.getPage_size());
 
         //查询列表
-        List<Users> list = um.searchAll(dataTable.getSearch());
+        List<Users> list = usersService.searchAll(dataTable.getSearch());
         //return JSONObject.toJSON(list);
 
-       PageInfo pageInfo = new PageInfo(list);
+        PageInfo pageInfo = new PageInfo(list);
 
 
-       //String column_data = dataTable.getColumns_data();
+        //String column_data = dataTable.getColumns_data();
         //System.out.println(column_data);
-       //System.out.println(dataTable.getSearch());
-       ////填充Datables数据
-       dataTable.setDraw(dataTable.getDraw());
-       dataTable.setData(pageInfo.getList());
-       dataTable.setRecordsTotal((int) pageInfo.getTotal());
-       dataTable.setRecordsFiltered(dataTable.getRecordsTotal());
+        //System.out.println(dataTable.getSearch());
+        ////填充Datables数据
+        dataTable.setDraw(dataTable.getDraw());
+        dataTable.setData(pageInfo.getList());
+        dataTable.setRecordsTotal((int) pageInfo.getTotal());
+        dataTable.setRecordsFiltered(dataTable.getRecordsTotal());
 
 
-       return JSONObject.toJSON(dataTable);
+        return JSONObject.toJSON(dataTable);
         //return ResultGenerator.genSuccessResult(pageInfo);
     }
 

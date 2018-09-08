@@ -72,4 +72,6 @@ public abstract class AbstractService<T> implements Service<T> {
     public List<T> findAll() {
         return mapper.selectAll();
     }
+
+    public List<T> searchAll(String key) {  return mapper.searchAll(key);  }
 }
