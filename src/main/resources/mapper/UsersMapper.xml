@@ -9,7 +9,7 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
-    <result column="gender" property="gender" javaType="com.tms.admin.core.Handler.GenderEnum" typeHandler="com.tms.admin.core.Handler.EnumKeyTypeHandler" />
+    <result column="gender" property="gender" javaType="INTEGER" />
     <result column="register_date" jdbcType="TIMESTAMP" property="registerDate" />
   </resultMap>
   <select id="searchAll" parameterType="String"  resultMap="BaseResultMap">
@@ -21,6 +21,12 @@
       or password LIKE concat(concat('%',#{key}),'%')
       or nick_name LIKE concat(concat('%',#{key}),'%')
       )
+    </if>
+    <if test="order_column_name!=null">
+      order BY #{order_column_name}
+      <if test="order_dir!=null">
+        #{order_dir}
+      </if>
     </if>
   </select>
 </mapper>

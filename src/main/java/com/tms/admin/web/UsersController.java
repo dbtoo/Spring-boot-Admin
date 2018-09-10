@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +30,7 @@ import java.util.List;
 public class UsersController {
     @Resource
     private UsersService usersService;
-    
+
     @RequestMapping("/add")
     public Result add(Users users) {
         usersService.save(users);
@@ -37,8 +38,10 @@ public class UsersController {
     }
 
     @RequestMapping("/delete")
-    public String delete(Integer id) {
-        usersService.deleteById(id);
+    public String delete(String id, RedirectAttributes redirectAttributes) {
+        usersService.deleteByIds(id);
+        //提示信息
+        redirectAttributes.addFlashAttribute("message", "删除成功");
         return "redirect:/admin/users/list";
     }
 
@@ -80,7 +83,7 @@ public class UsersController {
         PageHelper.startPage(dataTable.getPage_num(), dataTable.getPage_size());
 
         //查询列表
-        List<Users> list = usersService.searchAll(dataTable.getSearch());
+        List<Users> list = usersService.searchAll(dataTable.getSearch(), dataTable.getOrder_column_name(), dataTable.getOrder_dir());
         //return JSONObject.toJSON(list);
 
         PageInfo pageInfo = new PageInfo(list);

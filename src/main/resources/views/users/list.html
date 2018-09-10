@@ -46,8 +46,8 @@
                                             </div>
                                         </div>
                                         <div class="card-body">
-
-                                            <div class="alert alert-success" role="alert">错误提示信息</div>
+                                            <!--提示框框-->
+                                            <div class="alert alert-success" role="alert"  th:if="${not #lists.isEmpty(message)}" th:text="${message}"></div>
 
                                             <table id="main_list" class="table table-striped table-bordered"
                                                    style="width:100%">
@@ -171,7 +171,7 @@
             });
             //TODO::改成ajax
             if (select_ids.length > 0) {
-                window.location = '?id=' + select_ids.join(',');
+                window.location = '/admin/users/delete?id=' + select_ids.join(',');
                 //console.log(select_ids);
             }
         });

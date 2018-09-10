@@ -43,6 +43,8 @@ public class DataTablePageUtil<T> {
      */
     private String order_dir;
 
+    private String order_column_name;
+
     /*
      * columns 绑定的数据源，由 columns.dataOption 定义。
      */
@@ -157,20 +159,30 @@ public class DataTablePageUtil<T> {
         //DT传递的draw:
         String draw = "1";
         String searchKey = "";
+        String orderDir = "";
+        String orderColumn = "";
 
-        try{
+        try {
             //开始的数据行数
-             start = request.getParameter("start").isEmpty() ? start :request.getParameter("start");
+            start = request.getParameter("start").isEmpty() ? start : request.getParameter("start");
             //每页的数据数
-             length = request.getParameter("length").isEmpty() ? length : request.getParameter("length");
+            length = request.getParameter("length").isEmpty() ? length : request.getParameter("length");
             //DT传递的draw:
-             draw = request.getParameter("draw").isEmpty() ? draw : request.getParameter("draw");
+            draw = request.getParameter("draw").isEmpty() ? draw : request.getParameter("draw");
 
             searchKey = request.getParameter("search[value]").isEmpty() ? searchKey : request.getParameter("search[value]");
 
+            orderDir = request.getParameter("order[0][dir]").isEmpty() ? orderDir : request.getParameter("order[0][dir]");
+            orderColumn = request.getParameter("order[0][column]").isEmpty() ? orderColumn : request.getParameter("order[0][column]");
+            if (!orderColumn.isEmpty()) {
+                String column_name = request.getParameter("columns[" + orderColumn + "][data]").isEmpty() ? "" : request.getParameter("columns[" + orderColumn + "][data]");
+                if (!column_name.isEmpty()) {
+                    this.setOrder_column_name(column_name);
+                }
+            }
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -180,6 +192,9 @@ public class DataTablePageUtil<T> {
         this.setPage_size(Integer.parseInt(length));
         this.setDraw(Integer.parseInt(draw));
         this.setSearch(searchKey);
+
+        this.setOrder_dir(orderDir);
+
 
         //计算页码
         this.page_num = (Integer.parseInt(start) / Integer.parseInt(length)) + 1;
@@ -371,4 +386,11 @@ public class DataTablePageUtil<T> {
     }
 
 
+    public String getOrder_column_name() {
+        return order_column_name;
+    }
+
+    public void setOrder_column_name(String order_column_name) {
+        this.order_column_name = order_column_name;
+    }
 }

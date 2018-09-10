@@ -19,6 +19,6 @@ public interface Mapper<T>
         IdsMapper<T>,
         InsertListMapper<T> {
 
-    List<T> searchAll(@Param("key") String key);
+    List<T> searchAll(@Param("key") String key, @Param("order_column_name") String order_column_name, @Param("order_dir") String order_dir);
 
 }

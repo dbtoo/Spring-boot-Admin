@@ -2,6 +2,7 @@ package com.tms.admin.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.tms.admin.core.Handler.GenderEnum;
+import tk.mybatis.mapper.annotation.ColumnType;
 
 import java.util.Date;
 import javax.persistence.*;
@@ -18,7 +19,8 @@ public class Users {
     @Column(name = "nick_name")
     private String nickName;
 
-    private GenderEnum gender;
+
+    private int gender;
 
     @JSONField(format="yyyy-MM-dd")
     @Column(name = "register_date")
@@ -80,19 +82,6 @@ public class Users {
         this.nickName = nickName;
     }
 
-    /**
-     * @return gender
-     */
-    public String getGender() {
-        return gender.getValue();
-    }
-
-    /**
-     * @param gender
-     */
-    public void setGender(GenderEnum gender) {
-        this.gender = gender;
-    }
 
     /**
      * @return register_date
@@ -106,5 +95,13 @@ public class Users {
      */
     public void setRegisterDate(Date registerDate) {
         this.registerDate = registerDate;
+    }
+
+    public int getGender() {
+        return gender;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 }
