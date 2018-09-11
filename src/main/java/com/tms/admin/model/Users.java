@@ -19,7 +19,6 @@ public class Users {
     @Column(name = "nick_name")
     private String nickName;
 
-
     private int gender;
 
     @JSONField(format="yyyy-MM-dd")

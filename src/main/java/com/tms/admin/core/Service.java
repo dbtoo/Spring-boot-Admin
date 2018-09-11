@@ -29,6 +29,6 @@ public interface Service<T> {
 
     List<T> findAll();//获取所有
 
-    List<T> searchAll(String key, String order_column_name, String order_dir);//搜索所有
+    List<T> searchAll(String key, String order_column_name, String order_dir);//搜索
 
 }

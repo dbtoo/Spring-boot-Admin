@@ -181,7 +181,6 @@ public class DataTablePageUtil<T> {
                 }
             }
 
-
         } catch (Exception e) {
 
         }

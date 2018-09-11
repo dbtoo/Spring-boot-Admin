@@ -88,7 +88,6 @@ public class UsersController {
 
         PageInfo pageInfo = new PageInfo(list);
 
-
         //String column_data = dataTable.getColumns_data();
         //System.out.println(column_data);
         //System.out.println(dataTable.getSearch());

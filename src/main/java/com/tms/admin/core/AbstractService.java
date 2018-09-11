@@ -76,4 +76,5 @@ public abstract class AbstractService<T> implements Service<T> {
     public List<T> searchAll(String key, String order_column_name, String order_dir) {
         return mapper.searchAll(key, order_column_name, order_dir);
     }
+
 }

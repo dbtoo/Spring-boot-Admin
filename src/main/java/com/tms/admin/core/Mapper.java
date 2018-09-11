@@ -20,5 +20,4 @@ public interface Mapper<T>
         InsertListMapper<T> {
 
     List<T> searchAll(@Param("key") String key, @Param("order_column_name") String order_column_name, @Param("order_dir") String order_dir);
-
 }
