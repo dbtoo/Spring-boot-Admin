@@ -1,0 +1,60 @@
+{
+  "_from": "datatables.net-select",
+  "_id": "datatables.net-select@1.2.6",
+  "_inBundle": false,
+  "_integrity": "sha1-Iej7YF9VtIq21p+O0fIxiLcmlJo=",
+  "_location": "/datatables.net-select",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "datatables.net-select",
+    "name": "datatables.net-select",
+    "escapedName": "datatables.net-select",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/datatables.net-select/download/datatables.net-select-1.2.6.tgz",
+  "_shasum": "21e8fb605f55b48ab6d69f8ed1f23188b726949a",
+  "_spec": "datatables.net-select",
+  "_where": "/Users/wang12/Workspace/www/laravel/laravel_admin/ui",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "datatables.net": "^1.10.15",
+    "jquery": ">=1.7"
+  },
+  "deprecated": false,
+  "description": "Select for DataTables ",
+  "files": [
+    "js/**/*.js"
+  ],
+  "homepage": "https://datatables.net",
+  "keywords": [
+    "select",
+    "selection",
+    "DataTables",
+    "jQuery",
+    "table",
+    "DataTables"
+  ],
+  "license": "MIT",
+  "main": "js/dataTables.select.js",
+  "name": "datatables.net-select",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataTables/Dist-DataTables-Select.git"
+  },
+  "version": "1.2.6"
+}

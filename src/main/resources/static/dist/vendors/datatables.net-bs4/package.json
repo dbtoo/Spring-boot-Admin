@@ -1,0 +1,104 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "datatables.net-bs4@^1.10.16",
+        "scope": null,
+        "escapedName": "datatables.net-bs4",
+        "name": "datatables.net-bs4",
+        "rawSpec": "^1.10.16",
+        "spec": ">=1.10.16 <2.0.0",
+        "type": "range"
+      },
+      "E:\\workspace\\laravel_admin\\ui"
+    ]
+  ],
+  "_cnpm_publish_time": 1529416495634,
+  "_from": "datatables.net-bs4@>=1.10.16 <2.0.0",
+  "_hasShrinkwrap": false,
+  "_id": "datatables.net-bs4@1.10.18",
+  "_inCache": true,
+  "_location": "/datatables.net-bs4",
+  "_nodeVersion": "8.1.2",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/datatables.net-bs4_1.10.18_1529416495513_0.8848572182441397"
+  },
+  "_npmUser": {
+    "name": "datatables",
+    "email": "npm@datatables.net"
+  },
+  "_npmVersion": "5.0.3",
+  "_phantomChildren": {
+    "jquery": "3.3.1"
+  },
+  "_requested": {
+    "raw": "datatables.net-bs4@^1.10.16",
+    "scope": null,
+    "escapedName": "datatables.net-bs4",
+    "name": "datatables.net-bs4",
+    "rawSpec": "^1.10.16",
+    "spec": ">=1.10.16 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/",
+    "/datatables.net-autofill-bs4",
+    "/datatables.net-buttons-bs4",
+    "/datatables.net-fixedheader-bs4"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/datatables.net-bs4/download/datatables.net-bs4-1.10.18.tgz",
+  "_shasum": "cd44031efb0af62b7b63c41647ffc45baacda436",
+  "_shrinkwrap": null,
+  "_spec": "datatables.net-bs4@^1.10.16",
+  "_where": "E:\\workspace\\laravel_admin\\ui",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "dependencies": {
+    "datatables.net": "1.10.18",
+    "jquery": ">=1.7"
+  },
+  "description": "DataTables for jQuery with styling for [Bootstrap 4](http://getbootstrap.com/)",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "cd44031efb0af62b7b63c41647ffc45baacda436",
+    "size": 5700,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/datatables.net-bs4/download/datatables.net-bs4-1.10.18.tgz"
+  },
+  "files": [
+    "css/**/*.css",
+    "js/**/*.js"
+  ],
+  "gitHead": "c31a0c19b74b11a9fccb8841c7a66915aa914816",
+  "homepage": "https://datatables.net",
+  "keywords": [
+    "filter",
+    "sort",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Bootstrap 4"
+  ],
+  "license": "MIT",
+  "main": "./js/dataTables.bootstrap4.js",
+  "maintainers": [
+    {
+      "name": "datatables",
+      "email": "npm@datatables.net"
+    }
+  ],
+  "name": "datatables.net-bs4",
+  "optionalDependencies": {},
+  "publish_time": 1529416495634,
+  "readme": "ERROR: No README data found!",
+  "style": "./css/dataTables.bootstrap4.css",
+  "version": "1.10.18"
+}

@@ -1,0 +1,54 @@
+{
+  "_from": "jquery-datatables-checkboxes",
+  "_id": "jquery-datatables-checkboxes@1.2.10",
+  "_inBundle": false,
+  "_integrity": "sha1-wK5LFCRpgMVPk8Vx/vSjka/Ujkg=",
+  "_location": "/jquery-datatables-checkboxes",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "jquery-datatables-checkboxes",
+    "name": "jquery-datatables-checkboxes",
+    "escapedName": "jquery-datatables-checkboxes",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/jquery-datatables-checkboxes/download/jquery-datatables-checkboxes-1.2.10.tgz",
+  "_shasum": "c0ae4b14246980c54f93c571fef4a391afd48e48",
+  "_spec": "jquery-datatables-checkboxes",
+  "_where": "/Users/wang12/Workspace/www/laravel/laravel_admin/ui",
+  "author": {
+    "name": "Gyrocode",
+    "url": "https://www.gyrocode.com"
+  },
+  "bugs": {
+    "url": "https://github.com/gyrocode/jquery-datatables-checkboxes/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "datatables.net": ">=1.10.8",
+    "jquery": ">=1.7"
+  },
+  "deprecated": false,
+  "description": "Checkboxes is an extension for the jQuery DataTables library that provides universal solution for working with checkboxes in a table.",
+  "homepage": "https://www.gyrocode.com/projects/jquery-datatables-checkboxes/",
+  "keywords": [
+    "jQuery",
+    "DataTables",
+    "checkboxes"
+  ],
+  "license": "MIT",
+  "main": "./js/dataTables.checkboxes.js",
+  "name": "jquery-datatables-checkboxes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gyrocode/jquery-datatables-checkboxes.git"
+  },
+  "version": "1.2.10"
+}

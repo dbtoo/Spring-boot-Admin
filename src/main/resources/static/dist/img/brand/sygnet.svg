@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="355px" height="355px" viewBox="0 0 355 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="355" height="355"></rect>
+        <rect id="path-2" x="0.242306892" y="21.222324" width="181.283422" height="174.653744" rx="19.3877934"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2">
+            <g id="Rectangle-2">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#FFFFFF" stroke-width="1" x="0.5" y="0.5" width="354" height="354"></rect>
+            </g>
+            <g id="Group" transform="translate(0.000000, 64.000000)">
+                <text id="弥" font-family="PingFangSC-Regular, PingFang SC" font-size="161.564945" font-weight="normal" fill="#222222">
+                    <tspan x="185.378873" y="171">弥</tspan>
+                </text>
+                <g id="Rectangle">
+                    <use fill="#1D9BC6" fill-rule="evenodd" style="mix-blend-mode: darken;" xlink:href="#path-2"></use>
+                    <rect stroke="#F5F5F5" stroke-width="4.0968254" x="2.29071959" y="23.2707367" width="177.186597" height="170.556918" rx="19.3877934"></rect>
+                </g>
+                <text id="须" font-family="PingFangSC-Regular, PingFang SC" font-size="161.564945" font-weight="normal" fill="#F5F5F5">
+                    <tspan x="0.788536804" y="171.432099">须</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

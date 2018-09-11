@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="656px" height="175px" viewBox="0 0 656 175" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="20.2423069" y="21.222324" width="181.283422" height="174.653744" rx="19.3877934"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(-20.000000, -21.000000)">
+            <g id="Slice" transform="translate(0.000000, 7.154185)"></g>
+            <text id="弥" font-family="PingFangSC-Regular, PingFang SC" font-size="161.564945" font-weight="normal" fill="#222222">
+                <tspan x="205.378873" y="171">弥</tspan>
+            </text>
+            <g id="Rectangle">
+                <use fill="#1D9BC6" fill-rule="evenodd" style="mix-blend-mode: darken;" xlink:href="#path-1"></use>
+                <rect stroke="#F5F5F5" stroke-width="4.0968254" x="22.2907196" y="23.2707367" width="177.186597" height="170.556918" rx="19.3877934"></rect>
+            </g>
+            <text id="须" font-family="PingFangSC-Regular, PingFang SC" font-size="161.564945" font-weight="normal" fill="#F5F5F5">
+                <tspan x="20.7885368" y="171.432099">须</tspan>
+            </text>
+            <text id="ADMIN" font-family="AvenirNextCondensed-Regular, Avenir Next Condensed" font-size="137.653333" font-style="condensed" font-weight="normal" letter-spacing="-8.6033332" fill="#9B9B9B">
+                <tspan x="375.716578" y="170.602032">ADMIN</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
