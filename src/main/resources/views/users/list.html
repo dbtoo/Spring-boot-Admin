@@ -109,7 +109,7 @@
                 {data: 'username',orderable: true, searchable: true},
                 {data: 'password',orderable: true, searchable: true},
                 {data: 'nickName',orderable: true, searchable: true},
-                {data: 'gender'},
+                {data: function (td) {  return td.gender == 1 ? '男': '女';}},
                 {data: 'registerDate'},
                 {data:null,"render": function(data, type, row) {
                         var html = '<a href="/admin/users/delete?id='+row.id +'" title="删除"><i class="fa fa-remove"></i></a>';
